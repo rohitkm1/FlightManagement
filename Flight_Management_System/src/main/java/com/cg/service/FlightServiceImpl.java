@@ -3,10 +3,12 @@ package com.cg.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.cg.dao.FlightDao;
 import com.cg.entity.Flight;
+import com.cg.error.UserCreatedException;
 
 @Service
 public class FlightServiceImpl implements FlightService {
@@ -16,9 +18,17 @@ public class FlightServiceImpl implements FlightService {
 	
 
 	@Override
-	public void addFlight(Flight f) {
+	public void addFlight(Flight f) throws UserCreatedException{
+		
+		try
+		{
+			flightDao.addFlight(f);
+		}
+		catch(DataIntegrityViolationException e)
+		{
+			throw new UserCreatedException("Flight no already Exists");
+		}
 
-		flightDao.addFlight(f);
 	}
 
 	@Override
@@ -28,27 +38,34 @@ public class FlightServiceImpl implements FlightService {
 	}
 
 	@Override
-	public void deleteFlight(long FlightNumber) {
+	public void deleteFlight(int flightNumber) {
 		
 
-		Flight fli=flightDao.viewFlight(FlightNumber);
+		Flight fli=flightDao.viewFlight(flightNumber);
 		if(fli!=null)
-		flightDao.deleteFlight(FlightNumber);
+		flightDao.deleteFlight(flightNumber);
 		else
 			throw new RuntimeException("No Flight Number found");
 	}
 
 	@Override
-	public Flight modifyFlight(long FlightNumber) {
+	public void modifyFlight(Flight flight) {
 
-		return flightDao.modifyFlight(FlightNumber);
+		flightDao.modifyFlight(flight);
 		
 	}
 
 	@Override
-	public Flight viewFlight(long FlightNumber) {
+	public Flight viewFlight(int flightNumber) throws UserCreatedException{
+		
 
-		return flightDao.viewFlight(FlightNumber);
+		Flight flight=flightDao.viewFlight(flightNumber);
+		if(flight!=null)
+		{
+			return flight;
+		}
+		else
+			throw new UserCreatedException("Flight number not found");
 		
 	}
 

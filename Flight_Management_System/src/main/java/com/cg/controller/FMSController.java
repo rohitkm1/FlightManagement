@@ -17,7 +17,7 @@ import com.cg.entity.Flight;
 import com.cg.service.AirportService;
 import com.cg.service.FlightService;
 
-@CrossOrigin(origins="https://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 
 public class FMSController {
@@ -25,14 +25,17 @@ public class FMSController {
 	@Autowired
 	FlightService flightService;
 	
+	
+	//Flight Functionalities
+	
 @GetMapping(value="/flight")
 public List<Flight> fetchFlight()
 {
 	return flightService.viewFlight();
 }
 
-@GetMapping(value="/flight/{flightnumber}")
-public Flight fetchOne(@PathVariable long flightNumber)
+@GetMapping(value="/flight/{flightNumber}")
+public Flight fetchOne(@PathVariable int flightNumber)
 {
 	return flightService.viewFlight(flightNumber);	
 }
@@ -44,30 +47,33 @@ public String AddFlight(@RequestBody Flight flight)
 	return "Flight Added";
 }
 
-@DeleteMapping(value="/flight/delete/{flightnumber}")
-public String DeleteFlight(@PathVariable long flightNumber)
+@DeleteMapping(value="/flight/delete/{flightNumber}")
+public String DeleteFlight(@PathVariable int flightNumber)
 {
 	flightService.deleteFlight(flightNumber);
 	return "Flight Deleted";
 }
 
-@PutMapping(value="/flight/modify/{flightnumber}")
-public String ModifyFlight(@PathVariable long flightNumber)
+@PutMapping(value="/flight/modify/{flightNumber}")
+public String ModifyFlight(@PathVariable Flight flight)
 {
-	flightService.modifyFlight(flightNumber);
+	flightService.modifyFlight(flight);
 	return "Flight Modified";
 }
+
+	//Airport Functionalities
 
 	@Autowired
 	AirportService airportService;
 
+	@GetMapping(value="/airport")
 	public List<Airport> fetchAirport()
 	{
 		return airportService.viewAirport();
 		
 	}
 
-	@GetMapping(value="/airport/{flightnumber}")
+	@GetMapping(value="/airport/{airportCode}")
 	public Airport fetchTwo(@PathVariable String airportCode)
 	{
 		return airportService.viewAirport(airportCode);	

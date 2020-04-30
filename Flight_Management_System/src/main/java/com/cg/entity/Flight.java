@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class Flight {
 	
 	@Id
-	private long flightNumber;
+	private int flightNumber;
 	@Column
 	private String flightModel;
 	@Column
@@ -23,7 +23,7 @@ public class Flight {
 		super();
 	}
 	
-	public Flight(long flightNumber, String flightModel, int seatCapacity, String carrierName) {
+	public Flight(int flightNumber, String flightModel, int seatCapacity, String carrierName) {
 		super();
 		this.flightNumber = flightNumber;
 		this.flightModel = flightModel;
@@ -31,11 +31,11 @@ public class Flight {
 		this.carrierName = carrierName;
 	}
 
-	public long getFlightNumber() {
+	public int getFlightNumber() {
 		return flightNumber;
 	}
 
-	public void setFlightNumber(long flightNumber) {
+	public void setFlightNumber(int flightNumber) {
 		this.flightNumber = flightNumber;
 	}
 

@@ -19,11 +19,21 @@ public class FlightDaoImpl implements FlightDao{
 	@PersistenceContext
 	EntityManager em;
 
+	/* 
+	 * Addflight method takes input in an object
+	 * And pushes its value to database
+	 *  */
+	
 	@Override
 	public void addFlight(Flight f) {
 		em.persist(f);
 	}
 
+	/* 
+	 * Viewflight method will return all the flight details
+	 * it calls for an query to get all info
+	 *  */
+	
 	@Override
 	public List viewFlight() {
 		
@@ -31,30 +41,49 @@ public class FlightDaoImpl implements FlightDao{
 		return q.getResultList();
 		
 	}
+	
+	/* 
+	 * Deleteflight is used here to delete any flight details
+	 * Flightdetails will be deleted by flight number
+	 *  */
 
 	@Override
-	public void deleteFlight(long FlightNumber) {
+	public void deleteFlight(int flightNumber) {
 		
-		Flight f=em.find(Flight.class, FlightNumber);
+		Flight f=em.find(Flight.class, flightNumber);
 		System.out.println(f.getFlightNumber() +" "+f.getFlightModel() + " "+f.getSeatCapacity()+" "+f.getCarrierName()+ " is removed");
 		em.remove(f);
 		
 	}
 
+	/* 
+	 * Modifyflight will update the flight details
+	 * It will search by flight number through out the list
+	 * Then it will edit the existing values
+	 *  */
+	
 	@Override
-	public Flight modifyFlight(long FlightNumber) {
+	public void modifyFlight(Flight flight) {
 		
-		Flight fly=em.find(Flight.class, FlightNumber);
-		fly.setSeatCapacity(23);
+		Flight fly=em.find(Flight.class, flight.getFlightNumber());
+		fly.setFlightModel(flight.getFlightModel());
+		fly.setFlightNumber(flight.getFlightNumber());
+		fly.setCarrierName(flight.getCarrierName());
+		fly.setSeatCapacity(flight.getSeatCapacity());
 		System.out.println("Updated");
-		return null;
+		
 	}
 
+	/* 
+	 * This method will simply view a particular airport
+	 * By searching flightnumber through out the list
+	 *  */
+	
 	@Override
-	public Flight viewFlight(long FlightNumber) {
+	public Flight viewFlight(int flightNumber) {
 
 		
-		return em.find(Flight.class,  FlightNumber);
+		return em.find(Flight.class,  flightNumber);
 		
 	}
 

@@ -8,9 +8,9 @@ public interface FlightService {
 	
 	public void addFlight(Flight f);
 	public List viewFlight();
-	public void deleteFlight(long FlightNumber);
+	public void deleteFlight(int flightNumber);
 	
-	public Flight modifyFlight(long FlightNumber);
-	public Flight viewFlight(long FlightNumber);
+	public void modifyFlight(Flight flight);
+	public Flight viewFlight(int flightNumber);
 
 }
