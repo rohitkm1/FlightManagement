@@ -1,0 +1,60 @@
+<body>
+    <br><br>
+    <br><br>
+    <br>
+    <h1>Update Flight</h1>
+    <form #formdata="ngForm"  (ngSubmit)="searchOneFlight()" >
+    <br>
+     <div class="one"><input type="number" name="flightnumber" placeholder="Enter Flight Number" [(ngModel)]="fno" class="form-control"  required pattern="[1-9][0-9][0-9][0-9][0-9]" required #flightnumberr="ngModel"></div>
+     <div *ngIf="flightnumberr.invalid && flightnumberr.touched" class="alert alert-danger">
+        <div *ngIf="flightnumberr.errors.required">Flight Number is Mandatory</div>
+        <div *ngIf="flightnumberr.errors.pattern">Flight Number can have 5 digits with not 0 at first place</div>
+    </div>
+
+<div class="two"><input type="submit" value="Submit" class="btn btn-primary"></div>
+<br>
+    </form>
+ 
+    <br><br>
+
+    <h2>Edit Flight Form</h2>
+    <form #formdata2="ngForm"  (ngSubmit)="updateOneFlight(); formdata2.reset()" >
+<br>
+    <div class="three">
+    <input type="number" placeholder="Enter Flight Number" name="flightnumber" [(ngModel)]="updatedflight.flightNumber" value="{{updatedflight.flightNumber}}" class="form-control" required pattern="[1-9][0-9][0-9][0-9][0-9]" required minlength="4" required #flightnumberr="ngModel">
+    <div *ngIf="flightnumberr.invalid && flightnumberr.touched" class="alert alert-danger">
+        <div *ngIf="flightnumberr.errors.required">Flight Number is Mandatory</div>
+        <div *ngIf="flightnumberr.errors.pattern">Flight Number can have 5 digits with not 0 at first place</div>
+    </div></div>
+<br>
+    <div class="four">
+    <input type="text" placeholder="Enter Carrier Name" name="carriername" [(ngModel)]="updatedflight.carrierName" value="{{updatedflight.carrierName}}" class="form-control"  required minlength="5" required  pattern="[a-zA-Z ]*" required #carriernamee="ngModel">
+    <div *ngIf="carriernamee.invalid && carriernamee.touched" class="alert alert-danger">
+        <div *ngIf="carriernamee.errors.required">Carrier Name is Mandatory</div>
+        <div *ngIf="carriernamee.errors.minlength">Minimum length is 5 !</div>
+        <div *ngIf="carriernamee.errors.pattern">Carrier Name can have alphabets only</div>
+
+    </div></div>
+<br>
+    <div class="five">
+    <input type="text" placeholder="Enter Flight Model" name="flightmodel" [(ngModel)]="updatedflight.flightModel" value="{{updatedflight.flightModel}}" class="form-control"  required minlength="5" required  pattern="[a-zA-Z ]*" required #flightmodell="ngModel">
+    <div *ngIf="flightmodell.invalid && flightmodell.touched" class="alert alert-danger">
+        <div *ngIf="flightmodell.errors.required">Flight Model is Mandatory</div>
+        <div *ngIf="flightmodell.errors.minlength">Minimum length is 5 !</div>
+        <div *ngIf="flightmodell.errors.pattern">Flight Model can have alphabets only</div>
+
+    </div></div>
+<br>
+    <div class="six">
+    <input type="number" placeholder="Enter Seat Capacity" name="seatcapacity" [(ngModel)]="updatedflight.seatCapacity" value="{{updatedflight.seatCapacity}}" class="form-control" required minlength="3" required pattern="[1-9]*[0-9]*" required #seatcapacityy="ngModel">
+    <div *ngIf="seatcapacityy.invalid && seatcapacityy.touched" class="alert alert-danger">
+        <div *ngIf="seatcapacityy.errors.required">Seat Capacity is Mandatory</div>
+        <div *ngIf="seatcapacityy.errors.minlength">Can not start with 0 !</div>
+        <div *ngIf="seatcapacityy.errors.pattern">Seat Capacity can have digits only</div>
+
+    </div></div>
+    
+    <div class="seven"><input type="submit" value="Update" class="btn btn-success"></div>
+    </form>
+
+</body>

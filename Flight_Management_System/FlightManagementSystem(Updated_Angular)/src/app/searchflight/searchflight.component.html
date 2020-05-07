@@ -1,0 +1,44 @@
+<body>
+    <br><br>
+    <br><br>
+    <br>
+    <h3>Flight to be searched  </h3>
+<form (ngSubmit)="searchOneFlight()">
+    <br><br>
+    <div class="fourteen">
+    <input type="number" name="flightnumber" placeholder="Enter Flight Number" [(ngModel)]="fno"  class="form-control" required pattern="[1-9][0-9][0-9][0-9][0-9]"  required #flightnumberr="ngModel">
+    <div *ngIf="flightnumberr.invalid && flightnumberr.touched" class="alert alert-danger">
+        <div *ngIf="flightnumberr.errors.required">Flight Number is Mandatory</div>
+        <div *ngIf="flightnumberr.errors.pattern">Flight Number can have 5 digits with not 0 at first place</div>
+    </div>
+    </div>
+    
+   <div class="fifteen"><input type="submit" value="Search"  class="btn btn-success"></div>
+
+      <!-- <div class="notice"> -->
+    <!-- <div class="alert alert-danger" *ngIf="errormess != undefined" >{{errormess}} </div> -->
+     <!-- </div> -->
+</form>
+<br>
+<br>
+<br><br>
+<div class="sixteen">
+<table  class="table table-bordered table-hover">
+    <tr>
+        <th>FlightNumber</th>
+        <th>CarrierName</th>
+        <th>FlightModel</th>
+        <th>SeatCapacity</th>
+    </tr>
+    <tr>
+        <td>{{findFlight.flightNumber}}</td>
+        <td>{{findFlight.carrierName}}</td>
+        <td>{{findFlight.flightModel}}</td>
+        <td>{{findFlight.seatCapacity}}</td>
+    </tr>
+</table>
+</div>
+
+
+
+</body>

@@ -1,0 +1,52 @@
+<body>
+    <br><br>
+    <br><br>
+    <br>
+<h1 style="color:black;">Add Flight</h1>
+
+<form #formdata="ngForm" class="form-horizontal" (ngSubmit)="createFlight(); formdata.reset()">
+
+    <br><br>
+    <div class="eight">
+    <input type="number" placeholder="Enter Flight Number" name="flightnumber" [(ngModel)]="flig.flightNumber" class="form-control" required pattern="[1-9][0-9][0-9][0-9][0-9]" required #flightnumberr="ngModel">
+    <div *ngIf="flightnumberr.invalid && flightnumberr.touched" class="alert alert-danger">
+        <div *ngIf="flightnumberr.errors.required">Flight Number is Mandatory</div>
+        <div *ngIf="flightnumberr.errors.pattern">Flight Number can have 5 digits with not 0 at first place</div>
+    </div></div>
+    <br>
+
+    <div class="nine">
+    <input type="text" placeholder="Enter Carrier Name" name="carriername" [(ngModel)]="flig.carrierName" class="form-control" required minlength="5" required  pattern="[a-zA-Z ]*" required #carriernamee="ngModel">
+    <div *ngIf="carriernamee.invalid && carriernamee.touched" class="alert alert-danger">
+        <div *ngIf="carriernamee.errors.required">Carrier Name is Mandatory</div>
+        <div *ngIf="carriernamee.errors.minlength">Minimum length is 5 !</div>
+        <div *ngIf="carriernamee.errors.pattern">Carrier Name can have alphabets only</div>
+
+    </div></div>
+    <br>
+
+    <div class="ten">
+    <input type="text" placeholder="Enter Flight Model" name="flightmodel" [(ngModel)]="flig.flightModel" class="form-control" required minlength="5" required  pattern="[a-zA-Z ]*" required #flightmodell="ngModel">
+    <div *ngIf="flightmodell.invalid && flightmodell.touched" class="alert alert-danger">
+        <div *ngIf="flightmodell.errors.required">Flight Model is Mandatory</div>
+        <div *ngIf="flightmodell.errors.minlength">Minimum length is 5 !</div>
+        <div *ngIf="flightmodell.errors.pattern">Flight Model can have alphabets only</div>
+    </div></div>
+    <br>
+
+    <div class="eleven">
+    <input type="number" placeholder="Enter Seat Capacity" name="seatcapacity" [(ngModel)]="flig.seatCapacity" class="form-control" required minlength="3" required pattern="[1-9]*[0-9]*" required #seatcapacityy="ngModel">
+    <div *ngIf="seatcapacityy.invalid && seatcapacityy.touched" class="alert alert-danger">
+        <div *ngIf="seatcapacityy.errors.required">Seat Capacity is Mandatory</div>
+        <div *ngIf="seatcapacityy.errors.minlength">Can not start with 0 !</div>
+        <div *ngIf="seatcapacityy.errors.pattern">Seat Capacity can have digits only</div>
+
+    </div></div>
+    <br>
+
+    <div class="twelve">
+    <input type="submit" value="Submit" [disabled]="!formdata.valid"  class="btn btn-success">
+    </div>
+</form>
+
+</body>

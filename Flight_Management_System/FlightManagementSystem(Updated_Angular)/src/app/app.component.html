@@ -1,0 +1,11 @@
+<body>
+<ul>
+<li><a style='margin-right:11px' style="margin-left: 7px;" routerLink="/flight"  class="btn btn-primary">Click here for Flight <i class="fa fa-home" style="font-size:24px"></i></a><br><br></li>
+<li><a style='margin-left:11px' routerLink="/airport" class="btn btn-primary">Click here for Airport <i class="fa fa-home" style="font-size:24px"></i></a><br><br></li>
+<li><a *ngIf="flag" routerLink="/"  class="btn btn-primary" style='margin-left:11px'><i class="fa fa-home" style="font-size:24px"></i></a></li>
+
+</ul>
+
+<router-outlet></router-outlet>
+</body>
+

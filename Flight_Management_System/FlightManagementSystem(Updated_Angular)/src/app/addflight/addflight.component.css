@@ -1,0 +1,63 @@
+body{
+  font-size: sans-serif;
+  /* position: fixed; */
+  height: 100%;
+  width: 100%;
+  background: url(/assets/flight4.jpg) no-repeat center center fixed;
+  background-size:cover ;
+  background-attachment: initial;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-size: cover;
+  }
+
+h1{
+
+  margin-left: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  position: initial;
+  border-bottom: dotted;
+  display: inline;
+}
+
+.eight{
+
+   border: 3px solid #40ecf1; 
+  width: 300px;
+  font-size: 20px;
+  padding: 2.5px 2px;
+  margin: 1px 5px;
+  position: initial;
+}
+.nine{
+
+  border: 3px solid #40ecf1;
+  width: 300px;
+  font-size: 20px;
+  padding: 2.5px 2px;
+  margin: 1px 5px;
+  position: initial;
+}
+.ten{
+
+  border: 3px solid #40ecf1;
+  width: 300px;
+  font-size: 20px;
+  padding: 2.5px 2px;
+  margin: 1px 5px;
+  position: initial;
+}
+.eleven{
+
+  border: 3px solid #40ecf1;
+  width: 300px;
+  font-size: 20px;
+  padding: 2.5px 2px;
+  margin: 1px 5px;
+  position: initial;
+}
+.twelve{
+  position: absolute;
+  padding: 8px;
+}

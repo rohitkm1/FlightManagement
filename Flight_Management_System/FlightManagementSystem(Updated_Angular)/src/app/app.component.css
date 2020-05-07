@@ -1,0 +1,56 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" ;
+
+body{
+  font-size: sans-serif;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: url(/assets/flight2.jpg) no-repeat center center fixed;
+  background-size:cover ;
+  background-attachment: initial;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+
+/*
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(10, 65, 218, 0.938);
+    overflow: hidden; 
+  }
+*/
+ul{
+  list-style-type: none;
+  margin: -5px;
+  padding: 5px;
+
+}  
+li{
+    float: left;
+  }
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 36px;
+    text-decoration: none;
+  }
+  li a:hover {
+    background-color: #111;
+  }
+  li button {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 36px;
+    text-decoration: none;
+    position: absolute;
+    left: 88%;
+    background: none;
+    border: none;
+  }

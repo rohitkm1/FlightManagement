@@ -1,0 +1,22 @@
+<body>
+    <br><br>
+    <br><br>
+    <br>
+<h3>Details of Airports</h3>
+<br>
+<br>
+<table class="table table-bordered table-hover" style="margin-bottom: 5%">
+<tr>
+    <th>AirportCode</th>
+    <th>AirportLocation</th>
+    <th>AirportName</th>
+</tr>
+<tbody>
+    <tr *ngFor="let air of airports">
+        <td>{{air.airportCode}}</td>
+        <td>{{air.airportLocation}}</td>
+        <td>{{air.airportName}}</td>
+    </tr>
+</tbody>
+</table>
+</body>

@@ -1,0 +1,44 @@
+<body>
+    <br><br>
+    <br><br>
+    <br>
+<h1>Add Airport</h1>
+
+<form #formdata="ngForm" class="form-horizontal"  (ngSubmit)="createAirport(); formdata.reset()">
+    <br><br>
+<div class="one">
+    <input type="text" placeholder="Enter Airport Name" name="airportname" [(ngModel)]="airp.airportName" class="form-control" required pattern="[a-zA-Z ]*" required minlength="5" required #airportnamee="ngModel">
+    <div *ngIf="airportnamee.invalid && airportnamee.touched" class="alert alert-danger">   
+        <div *ngIf="airportnamee.errors.required">Name is Mandatory</div>
+        <div *ngIf="airportnamee.errors.minlength">Minimum length is 5 !</div>
+        <div *ngIf="airportnamee.errors.pattern"> Airport Name can have alphabets only</div>
+    </div>
+    </div>
+    <br>
+<div class="two">
+    <input type="text" placeholder="Enter Airport Location" name="airportlocation" [(ngModel)]="airp.airportLocation" class="form-control" required pattern="[a-zA-Z ]*" required minlength="5" required #airportlocationn="ngModel">
+    <div *ngIf="airportlocationn.invalid && airportlocationn.touched" class="alert alert-danger">
+        <div *ngIf="airportlocationn.errors.required">Location is Mandatory</div>
+        <div *ngIf="airportlocationn.errors.minlength">Minimum length is 5 !</div>
+        <div *ngIf="airportlocationn.errors.pattern"> Airport Location can have alphabets only</div>
+        </div>
+    </div>
+    <br>
+<div class="three">
+    <input type="text" placeholder="Enter Airport Code" name="airportcode" [(ngModel)]="airp.airportCode" class="form-control" required minlength="3" required #airportcodee="ngModel">
+    <div *ngIf="airportcodee.invalid && airportcodee.touched" class="alert alert-danger">
+        <div *ngIf="airportcodee.errors.required">Field can't be empty</div>
+        <div *ngIf="airportcodee.errors.minlength">Minimum length is 5 !</div>
+    </div>
+        </div>
+    <br>
+<div class="four">
+    <input type="submit" value="Submit" [disabled]="!formdata.valid" class="btn btn-success">
+
+</div>
+
+
+</form>
+
+
+</body>

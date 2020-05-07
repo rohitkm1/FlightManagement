@@ -1,0 +1,40 @@
+<body>
+    <br><br>
+    <br><br>
+    <br>
+    <h3>Airport to be searched </h3>
+<br><br>
+<form (ngSubmit)="searchOneAirport()">
+    <div class="five">
+    <input type="text" name="airportcode" placeholder="Enter Airport Code" [(ngModel)]="code" class="form-control"  required minlength="3" required #airportcodee="ngModel">
+    <div *ngIf="airportcodee.invalid && airportcodee.touched" class="alert alert-danger">
+        <div *ngIf="airportcodee.errors.required">Field can't be empty</div>
+        <div *ngIf="airportcodee.errors.minlength">Minimum length is 3 !</div>
+    </div>
+</div>
+    <div class="six">
+    <input type="submit" value="Search" class="btn btn-success">
+</div>
+</form>
+<br>
+<br>
+<br>
+<br>
+<div class="seven">
+<table  class="table table-bordered table-hover">
+    <tr>
+        <th>AirportCode</th>
+        <th>AirportName</th>
+        <th>AirportLocation</th>
+    </tr>
+    <tr>
+        <td>{{findAirport.airportCode}}</td>
+        <td>{{findAirport.airportName}}</td>
+        <td>{{findAirport.airportLocation}}</td>
+    </tr>
+</table>
+</div>
+
+
+
+</body>

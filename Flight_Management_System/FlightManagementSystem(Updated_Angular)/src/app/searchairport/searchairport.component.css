@@ -1,0 +1,46 @@
+body{
+  font-size: sans-serif;
+  /* position: fixed; */
+  height: 100%;
+  width: 100%;
+  background: url(/assets/flight1.png) no-repeat center center fixed;
+  background-size:cover ;
+  background-attachment: initial;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-size: cover;
+  }
+  .five{
+    border: 3px solid #40ecf1;
+    width: 300px;
+    font-size: 20px;
+    padding: 2.5px 2px;
+    margin: 1px 5px;
+    position: initial;
+
+  }
+  .six{
+
+    position: absolute;
+    padding: 8px;
+  }
+  h3{
+    margin-left: 6px;
+    font-style: normal;
+    text-align: left;
+    position: inherit;
+    border-bottom: dotted;
+    display: inline;
+  }
+  .seven{
+    border: 1px solid aqua;
+    border-width: 1.25px;
+    border-style: solid;
+  }
+  th{
+    background-color: rgba(80, 229, 240, 0.493);
+  }
+  td{
+    background-color: rgba(80, 229, 240, 0.493);
+  }
